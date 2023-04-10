@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <div style="text-align: center">
+    <h1>I love you</h1>
+    <h2>cake is a lie</h2>
+  </div>
+
+  <div style="margin-bottom: 30px">
+    <span>
+      <label style="margin-right:20px; width: max-content; margin-top: inherit; margin-bottom: 30px;">Количество записей из БД: {{countRecord.records}}</label>
+      <button (click)="getCountRecords()">Узнать количество записей</button>
+    </span>
+  </div>
+
+
+  <form (submit)="transformText()" style="margin-bottom: 20px">
+    <div>
+      <input [(ngModel)]="countRecord.original_text" minlength="0" maxlength="20" name="original_text" style="opacity: 1; box-sizing:border-box; font-size: 20px; height: 30%; margin: 0 0 30px; width: 35%" placeholder="Текст для образования (20 символов)"/>
+    </div>
+    <button>Преобразовать текст</button>
+  </form>
+
+  <label style="font-size: 20px;">Результат преобразования: {{countRecord.transform_text}} </label>
+
+
+  <table style="margin-bottom:5%;margin-right:auto; margin-left: auto; margin-top: 4%; border-collapse:collapse;width: 80%;text-align: center" border="1">
+    <caption style="font-size: 30px; margin-bottom: 4%">Таблица с результами</caption>
+    <tr style="height: 100px;">
+      <th>Номер</th>
+      <th>Дата сохранения записи</th>
+      <th>Оригинальная строка</th>
+      <th>Изменённая строка</th>
+      <th>Действие</th>
+    </tr>
+    <tr style="height: 50px;" *ngFor="let records of all_records">
+      <td>{{records.id}}</td>
+      <td>{{records.dateSave}}</td>
+      <td>{{records.originalString}}</td>
+      <td>{{records.convertedString}}</td>
+      <td><button  class="button_click_sm">Посмотреть на другие данные</button></td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
+
+
+<style>
+
+  .button_click_sm{
+    font-size: 20px;
+    font-family: serif;
+    color: white;
+    border-radius: 10px;
+    background: #1976d2;
+    padding: 2% 3%;
+    border: none;
+  }
+  .button_click_sm:hover {
+    background:grey;
+  }
+
+  .button_click_sm:active{
+    background: #333333;
+  }
+
+</style>
