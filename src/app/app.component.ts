@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {RestServiceService} from "./rest-service.service";
 import {observable, Observable} from "rxjs";
+import {ModelStringConversion} from "../model/model.stringconversion";
 
 
 
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
     transform_text: "",
   };
 
-  all_records: any[] = []
+  all_records: ModelStringConversion[] = []
 
   constructor(private service: RestServiceService) {}
 
@@ -40,8 +41,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAllRecords().subscribe(value => {
+      console.log(value.all_records)
       this.all_records = value.all_records
-      console.log(this.all_records)
     })
   }
 

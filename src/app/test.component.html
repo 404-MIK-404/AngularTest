@@ -47,6 +47,28 @@
     </tr>
   </table>
 
+
+  <p-table [value]="all_records">
+    <ng-template pTemplate="header">
+      <tr style="height: 100px;">
+        <th>Номер</th>
+        <th>Дата сохранения записи</th>
+        <th>Оригинальная строка</th>
+        <th>Изменённая строка</th>
+        <th>Действие</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-records>
+      <tr style="text-align: center">
+        <td>{{records.id}}</td>
+        <td>{{records.dateSave}}</td>
+        <td>{{records.originalString}}</td>
+        <td>{{records.convertedString}}</td>
+        <td><button  class="button_click_sm">Посмотреть на другие данные</button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+
 </body>
 </html>
 

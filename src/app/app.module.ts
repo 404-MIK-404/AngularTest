@@ -7,6 +7,8 @@ import  {HttpClientModule } from "@angular/common/http";
 import { RestServiceService } from "./rest-service.service";
 import {FormsModule} from "@angular/forms";
 
+import { TableModule } from 'primeng/table';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +17,8 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TableModule,
   ],
   providers: [RestServiceService,
   ],
