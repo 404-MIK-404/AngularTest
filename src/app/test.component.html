@@ -28,26 +28,6 @@
 
   <label style="font-size: 20px;">Результат преобразования: {{countRecord.transform_text}} </label>
 
-
-  <table style="margin-bottom:5%;margin-right:auto; margin-left: auto; margin-top: 4%; border-collapse:collapse;width: 80%;text-align: center" border="1">
-    <caption style="font-size: 30px; margin-bottom: 4%">Таблица с результами</caption>
-    <tr style="height: 100px;">
-      <th>Номер</th>
-      <th>Дата сохранения записи</th>
-      <th>Оригинальная строка</th>
-      <th>Изменённая строка</th>
-      <th>Действие</th>
-    </tr>
-    <tr style="height: 50px;" *ngFor="let records of all_records">
-      <td>{{records.id}}</td>
-      <td>{{records.dateSave}}</td>
-      <td>{{records.originalString}}</td>
-      <td>{{records.convertedString}}</td>
-      <td><button  class="button_click_sm">Посмотреть на другие данные</button></td>
-    </tr>
-  </table>
-
-
   <p-table [value]="all_records">
     <ng-template pTemplate="header">
       <tr style="height: 100px;">
@@ -68,6 +48,30 @@
       </tr>
     </ng-template>
   </p-table>
+
+
+  <p-treeTable [value]="testRe">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of cols">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+      <tr>
+        <td>
+          <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+          {{rowData.id}}
+        </td>
+        <td>{{rowData.dateSave}}</td>
+        <td>{{rowData.originalString}}</td>
+        <td>{{rowData.convertedString}}</td>
+      </tr>
+    </ng-template>
+  </p-treeTable>
+
+
 
 </body>
 </html>

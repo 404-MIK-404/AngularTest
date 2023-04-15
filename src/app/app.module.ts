@@ -9,6 +9,8 @@ import {FormsModule} from "@angular/forms";
 
 import { TableModule } from 'primeng/table';
 
+import {TreeTableModule} from 'primeng/treetable';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -19,6 +21,7 @@ import { TableModule } from 'primeng/table';
     HttpClientModule,
     FormsModule,
     TableModule,
+    TreeTableModule,
   ],
   providers: [RestServiceService,
   ],

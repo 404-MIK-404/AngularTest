@@ -5,6 +5,5 @@ export interface ModelMessage{
   id: number,
   descriptionMessage: string,
   nameMessage: string,
-  idConversion: ModelStringConversion,
 
 }
